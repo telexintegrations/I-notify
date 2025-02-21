@@ -3,9 +3,9 @@ import httpx
 import time
 import os
 
-# Configure the folder to watch and Slack webhook
-WATCHED_FOLDER = "/home/john/Documents/test_directory"  # 🔹 Change this to your target folder
-SLACK_WEBHOOK_URL = "http://localhost:5000/slack-webhook"
+# Configure the folder to watch and Telex webhook
+WATCHED_FOLDER = "/home/ubuntu/test_directory"  # 🔹 Change this to your target folder
+TELEX_WEBHOOK_URL = "https://ping.telex.im/v1/webhooks/01951279-015e-7baa-b755-dd631bdba9bf"
 
 def setup_auditd_rule():
     """Adds an auditd rule to monitor only file and directory deletions."""
@@ -18,6 +18,9 @@ def setup_auditd_rule():
             print(f"🚀 Added auditd rule to monitor {WATCHED_FOLDER}")
     except subprocess.CalledProcessError as e:
         print(f"❌ Failed to set up auditd rule: {e}")
+
+    except Exception as e:
+        return str(e)
 
 def get_deleted_files():
     """Fetches the latest file deletion logs from auditd."""
@@ -53,18 +56,23 @@ def extract_deletion_info(logs):
 
     return "\n\n".join(alerts) if alerts else None
 
-def send_to_slack(message):
-    """Sends a formatted message to Slack."""
+def send_to_telex(message):
+    """Sends a formatted message to Telex."""
     try:
-        payload = {"text": message}
-        response = httpx.post(SLACK_WEBHOOK_URL, json=payload)
+        payload = {
+                "message": message,
+                "event_name": "❌ DELETE ALERT",
+                "status": "sucess",
+                "username": "DELETE MONITOR"
+                }
+        response = httpx.post(TELEX_WEBHOOK_URL, json=payload)
         response.raise_for_status()
-        print("✅ Slack alert sent!")
+        print("✅ Telex alert sent!")
     except httpx.HTTPError as e:
-        print(f"❌ Failed to send to Slack: {e}")
+        print(f"❌ Failed to send to Telex: {e}")
 
 def monitor_deletions():
-    """Continuously monitors for file deletions and alerts Slack."""
+    """Continuously monitors for file deletions and alerts Telex."""
     print("🔍 Monitoring file deletions...")
     setup_auditd_rule()
 
@@ -73,9 +81,9 @@ def monitor_deletions():
     alert_message = extract_deletion_info(logs)
 
     if alert_message:
-        send_to_slack(alert_message)
+        send_to_telex(alert_message)
 
-    # time.sleep(10)  # Avoid excessive Slack messages
+    # time.sleep(10)  # Avoid excessive Telex messages
 
 if __name__ == "__main__":
     monitor_deletions()
