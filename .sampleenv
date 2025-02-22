@@ -1,0 +1,7 @@
+DB_NAME=file_monitor
+DB_USER=DELETE_MONITOR
+DB_PASSWORD=DB_PASSWORD
+DB_HOST=DB_HOST
+DB_PORT=5432
+WATCHED_FOLDER=/home/ubuntu/file_monitor/test_directory
+TELEX_WEBHOOK_URL=https://telex.im/dashboard/channels/0195091ed-2r92-7427a-b3o4-0d42cfe53224
