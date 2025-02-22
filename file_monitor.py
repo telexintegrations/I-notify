@@ -159,5 +159,6 @@ def monitor_deletions():
 # 📌 Start monitoring in a separate process
 #import threading
 #threading.Thread(target=monitor_deletions, daemon=True).start()
-if __name__ == "__main__":
-    monitor_deletions()
+
+if __name__== "__main__":
+    monitor_deletions(
