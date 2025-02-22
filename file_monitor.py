@@ -161,4 +161,4 @@ def monitor_deletions():
 #threading.Thread(target=monitor_deletions, daemon=True).start()
 
 if __name__== "__main__":
-    monitor_deletions(
+    monitor_deletions()
