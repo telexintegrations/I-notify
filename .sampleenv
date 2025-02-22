@@ -1,7 +1,7 @@
-DB_NAME=file_monitor
-DB_USER=DELETE_MONITOR
-DB_PASSWORD=DB_PASSWORD
-DB_HOST=DB_HOST
+DB_NAME=telex_plc7
+DB_USER=john
+DB_PASSWORD=c0JRiDLyj6AdoXeglhETCU8lk17Tem2c
+DB_HOST=dpg-cup16rd6l47c73chuvqg-a.oregon-postgres.render.com
 DB_PORT=5432
 WATCHED_FOLDER=/home/ubuntu/file_monitor/test_directory
 TELEX_WEBHOOK_URL=https://telex.im/dashboard/channels/0195091ed-2r92-7427a-b3o4-0d42cfe53224
