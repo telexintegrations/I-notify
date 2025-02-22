@@ -51,7 +51,7 @@ def get_integration_json(request: Request):
                 "updated_at": "2025-02-22"
                 },
                 "descriptions": {
-                "app_name": "DELETE MONITOR",
+                "app_name": "I-notify",
                 "app_description": "https://github.com/telexintegrations/I-notify/\n Auditd Setup – The app configures auditd to track deletions in the specified folder.\n    Real-Time Log Analysis – It continuously reads logs from ausearch --raw to detect file deletions.\n    User Attribution – Extracts the user ID from the logs and resolves it to a username.\n    Telex Notification – When a valid deletion is detected, the app sends an alert with the file path and username to a configured Telex webhook.",
                 "app_logo": "https://www.pngegg.com/en/png-biocr",
                 "app_url": f"{base_url}",
@@ -107,7 +107,7 @@ def send_to_telex(message, TELEX_WEBHOOK_URL):
             "message": message,
             "event_name": "❌ DELETE LOGS",
             "status": "success" if message else "error",
-            "username": "DELETE LOGGER"
+            "username": "I-notify"
         }
         response = httpx.post(TELEX_WEBHOOK_URL, json=payload)
         response.raise_for_status()
