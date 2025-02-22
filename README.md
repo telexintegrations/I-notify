@@ -45,7 +45,7 @@ psql -U postgres -d file_monitor -c "CREATE TABLE IF NOT EXISTS file_deletions (
 ### 5. Run the Monitor
 Start the script using:
 ```sh
-python monitor.py
+sudo python monitor.py
 ```
 The script will continuously monitor for file deletions and log them.
 
