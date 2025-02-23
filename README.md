@@ -44,6 +44,9 @@ DB_HOST=localhost
 DB_PORT=5432
 ```
 Replace the values as needed.
+OR
+```mv .sampleenv .env```
+Using the sample database and telex channel link
 
 ### 5. Set Up PostgreSQL Database
 Ensure PostgreSQL is running and create the necessary table:
@@ -56,6 +59,17 @@ Start the script using:
 ```sh
 sudo python file_monitor.py
 ```
+OR
+Start the script using:
+```sh
+sudo venv/bin/python3 file_monitor.py
+```
+### 7. Testing the Integration
+Start the script using:
+```sh
+./curl-test-telex
+```
+
 The script will continuously monitor for file deletions and log them.
 
 ## Running as a systemd Service
