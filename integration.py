@@ -68,16 +68,16 @@ def get_integration_json(request: Request):
                 "author": "John Tolulope Afariogun",
                 "settings": [
                 {
-                    "label": "interval",
-                    "type": "text",
-                    "required": True,
-                    "default": "59 23 * * *"
-                },
-                {
                     "label": "site",
                     "type": "text",
                     "required": True,
                     "default": f"{base_url}/logs"
+                },
+                {
+                    "label": "interval",
+                    "type": "text",
+                    "required": True,
+                    "default": "59 23 * * *"
                 }
                 ],
                 "target_url": f"{base_url}",
