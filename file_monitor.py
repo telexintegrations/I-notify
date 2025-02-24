@@ -137,7 +137,7 @@ def send_to_telex(file_path, user):
             "message": f"🚨 File Deleted! \n📂 Path: {file_path} \n👤 User: {user}",
             "event_name": "❌ DELETE ALERT",
             "status": "success",
-            "username": "DELETE MONITOR"
+            "username": "I-notify"
         }
         response = httpx.post(TELEX_WEBHOOK_URL, json=payload)
         response.raise_for_status()
