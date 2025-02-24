@@ -2,7 +2,7 @@
 
 ## Overview
 This project monitors file deletions in a specified directory using `auditd`, logs events to a PostgreSQL database, and sends alerts via a Telex Webhook.
-![Alt text](Screenshot_2025-02-24-12-03-13-670_com.android.chrome.jpg)
+![Alt text](Screenshot_2025-02-24-12-03-13-670_com.android.chrome~2.jpg)
 ## Features
 - Monitors file deletions in a specified directory.
 - Logs deleted files to a PostgreSQL database.
