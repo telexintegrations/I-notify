@@ -162,6 +162,9 @@ def get_logs_by_date(date: str):
         return {"logs": [{"id": log[0], "timestamp": log[1], "file_path": log[2], "deleted_by": log[3]} for log in logs]}
     except Exception as e:
         return {"error": str(e)}
+@app.get("/github-url")
+def github_url():
+    return {"github-url":"https://github.com/telexintegrations/I-notify/tree/main"}
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
