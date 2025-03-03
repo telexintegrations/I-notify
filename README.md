@@ -1,4 +1,4 @@
-# File Deletion Monitor
+![# File Deletion Monitor](https://telex-app.onrender.com/docs)
 
 ## Overview
 This project monitors file deletions in a specified directory using `auditd`, logs events to a PostgreSQL database, and sends alerts via a Telex Webhook.
